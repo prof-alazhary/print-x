@@ -13,7 +13,9 @@ module.exports = {
     select(req, res, next) {
         LitterService.select(req.params.id)
             .then(result => {
-                res.json(result);
+                //res.json(result);
+                result.pipe(res);
+                result.end();
             })
             .catch(err => {
                 res.json(err.message);
