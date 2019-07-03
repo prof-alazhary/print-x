@@ -32,7 +32,7 @@ const litterSchema = new Schema({
     }
 });
 
-litterSchema.index({'machineData.model':'text'});
+litterSchema.index({'machineData.chassisNo':'text', 'machineData.motorNo': 1});
 
 const Litter = model('Litter', litterSchema);
 

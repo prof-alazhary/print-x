@@ -3,30 +3,30 @@ const Litter = require('../models/Litter'),
 
 module.exports = {
 
-    create(ref) {
-        ref = ref || {};
-        return Litter.create(ref);
+    create(litter) {
+        litter = litter || {};
+        return Litter.create(litter);
     },
-    update(refId, ref) {
-        return Litter.updateOne({_id: ObjectId(refId)},{
-            $set: ref
+    update(litterId, litter) {
+        return Litter.updateOne({_id: ObjectId(litterId)},{
+            $set: litter
         })
     },
-    select(refId) {
-        return Litter.findOne({ _id: ObjectId(refId) });
+    select(litterId) {
+        return Litter.findOne({ _id: ObjectId(litterId) });
     },
-    delete(refId){
-        return Litter.deleteOne({ _id: ObjectId(refId) });
+    delete(litterId){
+        return Litter.deleteOne({ _id: ObjectId(litterId) });
     },
     search(criteria){
-        const {tags, summary } = criteria;
+        const {chassisNo, motorNo, customerName, operator } = criteria;
 
-        if(tags){
-            return Litter.find({ tags: { $in: tags } })
-        }else if(summary){
-            return Litter.find( { $text: { $search: summary } } )
-        }else{
-            return Promise.reject(new Error('you should have seach by tags or summary!'));
+        if(customerName){
+            criteria = { 'customerData.name': { $regex: new RegExp(`^${customerName}.*`)} };
+        }else {
+            criteria = { [operator]:[{'machineData.chassisNo':chassisNo}, {'machineData.motorNo':motorNo }]  };
         }
+
+        return Litter.find(criteria);
     }
 }
