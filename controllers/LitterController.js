@@ -1,8 +1,8 @@
-const ReferenceService = require('../services/ReferenceService');
+const LitterService = require('../services/LitterService');
 
 module.exports = {
     add(req, res, next) {
-        ReferenceService.create(req.body)
+        LitterService.create(req.body)
             .then(result => {
                 res.json(result);
             })
@@ -11,7 +11,7 @@ module.exports = {
             });
     },
     select(req, res, next) {
-        ReferenceService.select(req.params.id)
+        LitterService.select(req.params.id)
             .then(result => {
                 res.json(result);
             })
@@ -20,7 +20,7 @@ module.exports = {
             });
     },
     update(req, res, next) {
-        ReferenceService.update(req.params.id, req.body)
+        LitterService.update(req.params.id, req.body)
             .then(result => {
                 res.json(result);
             })
@@ -29,7 +29,7 @@ module.exports = {
             });
     },
     delete(req, res, next) {
-        ReferenceService.delete(req.params.id)
+        LitterService.delete(req.params.id)
             .then(result => {
                 res.json(result);
             })
@@ -38,7 +38,7 @@ module.exports = {
             });
     },
     search(req, res, next) {
-        ReferenceService.search(req.body)
+        LitterService.search(req.body)
             .then(result => {
                 res.json(result);
             })

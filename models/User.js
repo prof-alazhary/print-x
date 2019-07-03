@@ -2,6 +2,9 @@ const { model, Schema } = require('../config/mongoose'),
     promisify = require('../helpers/promisify');
 
 const userSchema = new Schema({
+    name:{
+        type: String
+    },
     email:{
         type: email
     },

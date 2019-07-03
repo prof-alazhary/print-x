@@ -35,7 +35,7 @@ const litterSchema = new Schema({
 litterSchema.index({'machineData.model':'text'});
 
 const Litter = model('Litter', litterSchema);
-console.log('Litter--->',Litter)
+
 promisify(Litter,['updateOne','update','find', 'findOne','create','deleteOne']);
 
 module.exports = Litter;
