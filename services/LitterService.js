@@ -51,31 +51,41 @@ function testPDFkit(data) {
     const PDFDocument = require('pdfkit');
     const doc = new PDFDocument();
     const { destination, machineData, customerData } = data,
-        { model, chassisNo, motorNomanufactureYear, color } = machineData,
+        { model, chassisNo, motorNo, motorNomanufactureYear, color } = machineData,
         { name, nationalId, address, city } = customerData;
 
-       // console.log(data)
+    //set background img for testing phase..
+    doc.image('resources/img/litter template.jpg', 0, 0, { width: 605, height: 830 });
+    //test-print3.pdf
 
-    doc.image('resources/img/litter template.jpg', 0, 0, { width: 605, height: 830 }); //{fit: [580, 780], align: 'center', valign: 'center'} ) //, align: 'center', valign: 'center'
-    //test 3  ==> {width: 605, height: 830}
-    //.rect(430, 15, 100, 100).stroke();
+    //set arabic font for arabic text inputs to pdf document.
+    doc.font('resources/font/Scheherazade-Regular.ttf').fontSize(25);
 
-    doc.font('resources/font/Scheherazade-Regular.ttf').fontSize(25).text(destination, 100, 80);//charset=UTF-8"
+    doc.text(destination, 350, 240);
 
-    doc.circle(280, 200, 50).fill('#6600FF');
+    doc.text(destination,  145, 390);
+    
+    doc.text(model, 350, 360);
 
-    // and some justified text wrapped into columns
-    doc.text(name, 100, 300)
-        .font('Times-Roman', 13)
-        .moveDown()
-        .text(chassisNo, {
-            width: 412,
-            align: 'justify',
-            indent: 30,
-            columns: 2,
-            height: 300,
-            ellipsis: true
-        });
+    doc.text(chassisNo, 320, 390);
+
+    doc.text(motorNo, 320, 420);
+
+    doc.text(motorNomanufactureYear || 2019, 320, 450);
+
+    doc.text(color|| "yellow",  320, 480);
+
+    doc.text(rtlText(name), 270, 540);
+
+    doc.text(nationalId,  60, 540);
+
+    doc.text(rtlText(address), 300, 570);
+
+    doc.text(city,  80, 570);
 
     return doc;
+}
+
+function rtlText(text){
+    return text.split(" ").reverse().join(" ");
 }
