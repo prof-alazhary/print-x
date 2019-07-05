@@ -8,26 +8,26 @@ const litterSchema = new Schema({
     },
     destination:{
         type: String,
-        default: ''
+        default: ""
     },
     machineData:{
         type: Object,
         default:{
-            model:'',
-            chassisNo:'',
-            motorNo:'',
-            manufactureYear:'',
-            color:''
+            model:"",
+            chassisNo:"",
+            motorNo:"",
+            manufactureYear:"",
+            color:""
 
         }
     },
     customerData:{
         type: Object,
         default:{
-            name:'',
-            nationalId:'',
-            address:'',
-            city:''
+            name:"",
+            nationalId:"",
+            address:"",
+            city:""
         }
     }
 });
