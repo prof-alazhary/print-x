@@ -1,10 +1,16 @@
 const LitterService = require('../services/LitterService');
 
 module.exports = {
-    add(req, res, next) {
+    new(req, res, next){
+        console.log('-->new')
+        res.render('litter/new')
+    },
+    create(req, res, next) {
+        console.log('-->create')
+
         LitterService.create(req.body)
             .then(result => {
-                res.json(result);
+                //res.json(result);
             })
             .catch(err => {
                 res.json(err.message);

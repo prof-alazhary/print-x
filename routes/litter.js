@@ -4,9 +4,11 @@ const verifyToken = require('../policies/verifyToken');
 const LitterController =  require('../controllers/LitterController');
 
 
+router.get('/new', LitterController.new);
+
 router.get('/:id', LitterController.select);
 
-router.post('/new', LitterController.add);
+router.post('/new', LitterController.create);
 
 router.put('/:id', LitterController.update);
 

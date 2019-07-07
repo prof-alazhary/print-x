@@ -55,11 +55,11 @@ function testPDFkit(data) {
         { name, nationalId, address, city } = customerData;
 
     //set background img for testing phase..
-    doc.image('resources/img/litter template.jpg', 0, 0, { width: 605, height: 830 });
+    doc.image('public/images/litter template.jpg', 0, 0, { width: 605, height: 830 });
     //test-print3.pdf
 
     //set arabic font for arabic text inputs to pdf document.
-    doc.font('resources/font/Scheherazade-Regular.ttf').fontSize(25);
+    doc.font('public/fonts/Scheherazade-Regular.ttf').fontSize(25);
 
     doc.text(destination, 350, 240);
 
