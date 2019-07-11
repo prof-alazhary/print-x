@@ -4,14 +4,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Contact - Zerotype Website Template</title>
-	<link rel='stylesheet' href="/static/css/style.css" />
+	<link rel="stylesheet" href="/static/css/style.css" type="text/css">
 </head>
-<%console.log("helllo")%>
 <body>
-	<div id="header">
+	<div name="header">
 		<div>
 			<div class="logo">
-				<a href="index.html">Zero Type</a>
+				<a href="index.html"></a>
 			</div>
 			<ul id="navigation">
 				<li>
@@ -33,10 +32,9 @@
 		</div>
 	</div>
 	<div id="contents">
-		<form action="index.html" method="post" class="message">
+		<form action="/api/litter/new" method="post" enctype="application/x-www-form-urlencoded" class="message">
 		<div class="section">
-			<h1 style="float:left">خطاب جديد</h1>
-			<br>
+			<h1  align="center">خطاب جديد</h1>
 			<div>
 				<p>
 					<h2>
@@ -45,8 +43,8 @@
 				</p>
 		
 					<label for="destination">قائد مرور:</label>
-					<input id="destination" type="text" placeholder="destination" />
-					<br>
+					<input name="destination" type="text" placeholder="destination" />
+					
 					<hr>
 			</div>
 				<div style="width: 400px; float: right;">
@@ -58,23 +56,23 @@
 						</p>
 		
 						<label for="model">الطراز:</label>
-						<input id="model" type="text" placeholder="model" />
+						<input name="machineData[model]" type="text" placeholder="model" />
 						<br>
 		
 						<label for="chassis">الشاسية:</label>
-						<input id="chassis" type="text" placeholder="chassis" />
+						<input name="machineData[chassis]" type="text" placeholder="chassis" />
 						<br>
 		
 						<label for="motor">الموتور:</label>
-						<input id="motor" type="text" placeholder="motor" />
+						<input name="machineData[motor]" type="text" placeholder="motor" />
 						<br>
 		
 						<label for="year">سنة الصنع:</label>
-						<input id="year" type="text" placeholder="year" />
+						<input name="machineData[year]" type="text" placeholder="year" />
 						<br>
 		
 						<label for="color">اللون:</label>
-						<input id="color" type="text" placeholder="color" />
+						<input name="machineData[color]" type="text" placeholder="color" />
 						<br>
 
 				</div>
@@ -86,26 +84,29 @@
 						</p>
 		
 						<label for="name">الإسم:</label>
-						<input id="name" type="text" placeholder="name" />
+						<input name="customerData[name]" type="text" placeholder="name" />
 						<br>
 		
 						<label for="nationalid">رقم قومي:</label>
-						<input id="nationalid" type="text" placeholder="nationalid" />
+						<input name="customerData[nationalid]" type="text" placeholder="nationalid" />
 						<br>
 		
 						<label for="address">المقيم:</label>
-						<input id="address" type="text" placeholder="address" />
+						<input name="customerData[address]" type="text" placeholder="address" />
 						<br>
 		
 						<label for="city">المحافظة:</label>
-						<input id="city" type="text" placeholder="city" />
+						<input name="customerData[city]" type="text" placeholder="city" />
 						<br>
-				</div>
-				<div style="width: 100px;">
+						<br>
+						<div style="width: 250px; float: left;">
+							
 					<input type="submit" placeholder="Send"/>
 					<br>
 					
+				        </div>
 				</div>
+				
 				
 			</div>
 		</form>

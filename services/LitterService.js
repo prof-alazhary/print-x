@@ -5,8 +5,8 @@ module.exports = {
     create(litter) {
         litter = litter || {};
         return Litter.create(litter).then(litter => {
-           // return this.select(litter.id);
-           return litter
+            return this.select(litter.id);
+           //return litter
         });
     },
     update(litterId, litter) {

@@ -7,10 +7,16 @@ module.exports = {
     },
     create(req, res, next) {
         console.log('-->create')
+        const user = req.user || {},
+        litter = req.body;
 
-        LitterService.create(req.body)
+        litter.user = user.id || 123; //for testing
+        console.log(litter)
+
+        LitterService.create(litter)
             .then(result => {
-                //res.json(result);
+                result.pipe(res);
+                result.end();
             })
             .catch(err => {
                 res.json(err.message);

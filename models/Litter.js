@@ -18,7 +18,6 @@ const litterSchema = new Schema({
             motorNo:"",
             manufactureYear:"",
             color:""
-
         }
     },
     customerData:{
@@ -29,6 +28,10 @@ const litterSchema = new Schema({
             address:"",
             city:""
         }
+    },
+    createdAt:{
+        type: Date,
+        default: Date.now
     }
 });
 
