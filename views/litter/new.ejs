@@ -7,26 +7,20 @@
 	<link rel="stylesheet" href="/static/css/style.css" type="text/css">
 </head>
 <body>
-	<div name="header">
+	<div id="header">
 		<div>
 			<div class="logo">
 				<a href="index.html"></a>
 			</div>
 			<ul id="navigation">
 				<li>
-					<a href="index.html">Home</a>
+					<a href="#">اتصل بنا</a>
 				</li>
 				<li>
-					<a href="features.html">Features</a>
-				</li>
-				<li>
-					<a href="news.html">News</a>
-				</li>
-				<li>
-					<a href="about.html">About</a>
+					<a href="#">بحث</a>
 				</li>
 				<li class="active">
-					<a href="contact.html">Contact</a>
+					<a href="/api/litter/new">خطاب</a>
 				</li>
 			</ul>
 		</div>
@@ -56,23 +50,23 @@
 						</p>
 		
 						<label for="model">الطراز:</label>
-						<input name="machineData[model]" type="text" placeholder="model" />
+						<input name="model" type="text" placeholder="model" />
 						<br>
 		
 						<label for="chassis">الشاسية:</label>
-						<input name="machineData[chassis]" type="text" placeholder="chassis" />
+						<input name="chassisNo" type="text" placeholder="chassis" />
 						<br>
 		
 						<label for="motor">الموتور:</label>
-						<input name="machineData[motor]" type="text" placeholder="motor" />
+						<input name="motorNo" type="text" placeholder="motor" />
 						<br>
 		
 						<label for="year">سنة الصنع:</label>
-						<input name="machineData[year]" type="text" placeholder="year" />
+						<input name="manufactureYear" type="text" placeholder="year" />
 						<br>
 		
 						<label for="color">اللون:</label>
-						<input name="machineData[color]" type="text" placeholder="color" />
+						<input name="color" type="text" placeholder="color" />
 						<br>
 
 				</div>
@@ -84,19 +78,19 @@
 						</p>
 		
 						<label for="name">الإسم:</label>
-						<input name="customerData[name]" type="text" placeholder="name" />
+						<input name="name" type="text" placeholder="name" />
 						<br>
 		
 						<label for="nationalid">رقم قومي:</label>
-						<input name="customerData[nationalid]" type="text" placeholder="nationalid" />
+						<input name="nationalId" type="text" placeholder="nationalid" />
 						<br>
 		
 						<label for="address">المقيم:</label>
-						<input name="customerData[address]" type="text" placeholder="address" />
+						<input name="address" type="text" placeholder="address" />
 						<br>
 		
 						<label for="city">المحافظة:</label>
-						<input name="customerData[city]" type="text" placeholder="city" />
+						<input name="city" type="text" placeholder="city" />
 						<br>
 						<br>
 						<div style="width: 250px; float: left;">

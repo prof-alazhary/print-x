@@ -1,17 +1,47 @@
 const LitterService = require('../services/LitterService');
 
 module.exports = {
-    new(req, res, next){
-        console.log('-->new')
-        res.render('litter/new')
+    new(req, res, next) {
+        console.log('-->new');
+        res.render('litter/new');
     },
     create(req, res, next) {
-        console.log('-->create')
+        console.log('-->create');
         const user = req.user || {},
-        litter = req.body;
+        //we will use the following way to wrapping up litter object until we use (body-barser) 
+            {
+                //user,
+                destination,
+                model,
+                chassisNo,
+                motorNo,
+                manufactureYear,
+                color,
+                name,
+                nationalId,
+                address,
+                city
+            } = req.body,
+            litter = {
+                //user,
+                destination,
+                machineData: {
+                    model,
+                    chassisNo,
+                    motorNo,
+                    manufactureYear,
+                    color,
+                },
+                customerData: {
+                    name,
+                    nationalId,
+                    address,
+                    city
+                },
+            };
 
         litter.user = user.id || 123; //for testing
-        console.log(litter)
+        console.log(litter);
 
         LitterService.create(litter)
             .then(result => {

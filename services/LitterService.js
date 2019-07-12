@@ -73,7 +73,7 @@ function testPDFkit(data) {
 
     doc.text(motorNomanufactureYear || 2019, 320, 450);
 
-    doc.text(color|| "yellow",  320, 480);
+    doc.text(color||"",  320, 480);
 
     doc.text(rtlText(name), 270, 540);
 
@@ -81,7 +81,7 @@ function testPDFkit(data) {
 
     doc.text(rtlText(address), 300, 570);
 
-    doc.text(city,  80, 570);
+    doc.text(city||destination,  80, 570);
 
     return doc;
 }
