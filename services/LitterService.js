@@ -78,10 +78,10 @@ function testPDFkit(data) {
         { name, nationalId, address, city } = customerData;
 
     //set background img for testing phase..
-    doc.image('public/images/litter template.jpg', 0, 0, {
-        width: 605,
-        height: 830
-    });
+    // doc.image('public/images/litter template.jpg', 0, 0, {
+    //     width: 605,
+    //     height: 830
+    // });
     //test-print3.pdf
 
     //set arabic font for arabic text inputs to pdf document.
@@ -91,15 +91,15 @@ function testPDFkit(data) {
 
     doc.text(destination, 145, 390);
 
-    doc.text(model, 350, 360);
+    doc.text(model, 320, 360);
 
     doc.text(chassisNo, 320, 390);
 
     doc.text(motorNo, 320, 420);
 
-    doc.text(motorNomanufactureYear || 2019, 320, 450);
+    doc.text(motorNomanufactureYear , 320, 450);
 
-    doc.text(color || '', 320, 480);
+    doc.text(color, 320, 480);
 
     doc.text(rtlText(name), 270, 540);
 
@@ -107,7 +107,7 @@ function testPDFkit(data) {
 
     doc.text(rtlText(address), 300, 570);
 
-    doc.text(city || destination, 80, 570);
+    doc.text(city, 80, 570);
 
     return doc;
 }
