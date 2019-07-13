@@ -38,7 +38,7 @@ img {
 	line-height:0;
 	visibility:hidden;
 }
-.btn {
+.mybtn {
 	background: url(../images/bg-button.png) no-repeat;
 	background-position: 0 -70px;
 	color: #fff;
@@ -50,7 +50,7 @@ img {
 	text-decoration: none;
 	text-transform: uppercase;
 }
-.btn:hover {
+.mybtn:hover {
 	background-position: 0 0;
 }
 /*------------------------------ HEADER ------------------------------*/
@@ -433,7 +433,6 @@ p a {
 }
 
 /*------------------------------ search ------------------------------*/
-
 
 /*------------------------------ log ------------------------------*/
 

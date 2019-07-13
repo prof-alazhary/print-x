@@ -64,6 +64,9 @@ module.exports = {
                 res.json(err.message);
             });
     },
+    edit(req, res, next){
+
+    },
     update(req, res, next) {
         LitterService.update(req.params.id, req.body)
             .then(result => {
@@ -82,7 +85,10 @@ module.exports = {
                 res.json(err.message);
             });
     },
-    search(req, res, next) {
+    search(req,res,next) {
+        res.render('litter/search');
+    },
+    find(req, res, next) {
         LitterService.search(req.body)
             .then(result => {
                 res.json(result);

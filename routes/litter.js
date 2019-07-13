@@ -6,7 +6,9 @@ const LitterController =  require('../controllers/LitterController');
 
 router.get('/new', LitterController.new);
 
-router.get('/:id', LitterController.select);
+router.get('/search', LitterController.search);
+
+router.get('/:id', LitterController.edit);
 
 router.post('/new', LitterController.create);
 
@@ -14,6 +16,6 @@ router.put('/:id', LitterController.update);
 
 router.delete('/:id', LitterController.delete)
 
-router.post('/search', LitterController.search);
+router.post('/search', LitterController.find);
 
 module.exports = router;
