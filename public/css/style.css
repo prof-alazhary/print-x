@@ -17,6 +17,10 @@
 	font-family: 'Scheherazade';
 	src: url('../fonts/Scheherazade-Regular.ttf')
 }
+@font-face{
+	font-family: 'Scheherazade-B';
+	src: url('../fonts/Scheherazade-Bold.ttf')
+}
 
 body {
 	background-color: #fff;
@@ -54,6 +58,7 @@ img {
 	background-color: #eee;
 	border-bottom: 1px solid #e6e6e6;
 	padding: 27px 0;
+	font-family: 'Scheherazade-B';
 }
 #header > div, #footer > div {
 	width: 920px;
@@ -75,7 +80,7 @@ img {
 	height: 20px;
 	width: 76px;
 	padding-top: 68px;
-	
+
 	text-decoration: none;
 	text-transform: uppercase;
 }
