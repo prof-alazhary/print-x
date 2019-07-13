@@ -330,7 +330,6 @@ p a {
 	font-size: large;
 	float: right;
 	width: 880px;
-	margin-right: 50px;
 }
 .section h1 {
 	margin-bottom: 18px;
@@ -417,6 +416,20 @@ p a {
 #connect a.tumbler:hover {
 	background-position: -40px -120px;
 
+}
+/*----------------------------error-message--------------------------*/
+.block{
+	padding-top: 150px;
+	height: 500px;
+	width: 800px;
+	float: right;
+	direction: rtl;
+}
+.error-message {
+	box-decoration-break: clone;
+	text-decoration: #585858;
+	font-family: 'Scheherazade';
+	background-color: white;
 }
 
 /*------------------------------ search ------------------------------*/

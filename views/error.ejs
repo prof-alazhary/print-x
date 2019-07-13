@@ -1,3 +1,49 @@
-<h1><%= error.message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<!DOCTYPE HTML>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Contact - Zerotype Website Template</title>
+	<link rel="stylesheet" href="/static/css/style.css" type="text/css">
+</head>
+<body>
+	<div id="header">
+		<div>
+			<div class="logo">
+				<a href="index.html"></a>
+			</div>
+			<ul id="navigation">
+				<li>
+					<a href="#"><h2>اتصل بنا</h2></a>
+				</li>
+				<li>
+					<a href="#"><h2>بحث</h2></a>
+				</li>
+				<li class="active">
+					<a href="/api/litter/new"><h2>خطاب</h2></a>
+				</li>
+			</ul>
+		</div>
+    </div>
+    <div class="section" >
+        <div class="block">
+            <img src="/static/images/warning.png" width="50", height="50" style="padding-right: 350px;"/>
+            <br>
+                <div class="error-message">
+                        <h1><%= err.message %></h1>
+                </div>
+        </div>
+    </div>
+
+	<div id="footer">
+		<div class="clearfix">
+			<div id="connect">
+				<a href="#" target="_blank" class="facebook"></a><a href="#" target="_blank" class="googleplus"></a><a href="#" target="_blank" class="twitter"></a><a href="#" target="_blank" class="tumbler"></a>
+			</div>
+			<p>
+				© 2020 Alazhary. All Rights Reserved.
+			</p>
+		</div>
+	</div>
+</body>
+</html>

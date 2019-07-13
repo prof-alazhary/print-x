@@ -49,7 +49,8 @@ module.exports = {
                 result.end();
             })
             .catch(err => {
-                res.json(err.message);
+                //res.json(err.message);
+                res.render('error',{err})
             });
     },
     select(req, res, next) {

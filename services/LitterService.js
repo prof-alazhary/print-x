@@ -12,7 +12,7 @@ module.exports = {
                 { 'machineData.model': model }
             ]
         }).then(_litter => {
-            
+
             if (!_litter) {
                 return Litter.create(litter).then(litter => {
                     return this.select(litter.id);
@@ -20,7 +20,7 @@ module.exports = {
             } else {
                 return Promise.reject(
                     new Error(
-                        'هذا الخطاب تم عمله من قبل بنفس بيانات المركبة, برجاء مراجعة البيانات'
+                        'هذا الخطاب تم عمله من قبل بنفس بيانات المركبة, برجاء مراجعة البيانات!'
                     )
                 );
             }
