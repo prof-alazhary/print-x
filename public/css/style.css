@@ -237,7 +237,7 @@ p a {
 	text-align: center;
 	text-decoration: none;
 }
-.more:hover, .message input[type='submit']:hover {
+.more:hover, .submit-form input[type='submit']:hover {
 	background-color: #f99600;
 	color: #000;
 }
@@ -330,9 +330,9 @@ p a {
 .section h1 {
 	margin-bottom: 18px;
 }
-.message input[type='text'], .message textarea {
-	color: #aeaeae;
-	font-size: 13px;
+.submit-form input[type='text'], .submit-form textarea {
+	font-family: 'Scheherazade';
+	font-size: 20px;
 	height: 33px;
 	line-height: 33px;
 	width: 380px;
@@ -340,17 +340,17 @@ p a {
 	margin: 0 0 6px;
 	padding: 0 4px;
 }
-.message textarea {
+.submit-form textarea {
 	height: 175px;
 	overflow: auto;
 	resize: none;
 }
-.message input[type='submit'] {
+.submit-form input[type='submit'] {
 	
 	background-color: #818181;
-	color: #d5d5d5;
+	color: #faf5f5;
 	cursor: pointer;
-	font: 13px/30px Arial, Helvetica, sans-serif;
+	font: 15px/30px Arial, Helvetica, sans-serif;
 	height: 30px;
 	border: 0;
 	margin: 0;
