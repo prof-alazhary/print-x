@@ -40,7 +40,7 @@ module.exports = {
                 },
             };
 
-        litter.user = user.id || 123; //for testing
+        litter.user = user.id || global.userId; //it's temp. before applying the login api
         console.log(litter);
 
         LitterService.create(litter)
