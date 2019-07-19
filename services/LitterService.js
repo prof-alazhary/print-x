@@ -67,7 +67,7 @@ module.exports = {
 function testPDFkit(data) {
     const PDFDocument = require('pdfkit');
     const doc = new PDFDocument();
-    const { dealer, destination, machineData, customerData } = data,
+    const { destination, machineData, customerData } = data,
         {
             model,
             chassisNo,
@@ -76,6 +76,10 @@ function testPDFkit(data) {
             color
         } = machineData,
         { name, nationalId, address, city } = customerData;
+
+    let { dealer } = data;
+
+    console.log('dealer--->',dealer)
 
     //set background img for testing phase..
     doc.image('public/images/litter template.jpg', 0, 0, {
@@ -108,6 +112,18 @@ function testPDFkit(data) {
     doc.text(rtlText(address), 300, 570);
 
     doc.text(city, 80, 570);
+
+    let dealerX = 490;
+    if(dealer.split(' ').length>1){
+        dealerX = 475
+        dealer = rtlText(dealer);
+    }
+
+    console.log(dealer)
+
+    doc.fontSize(17);
+
+    doc.text(dealer, dealerX, 680);
 
     return doc;
 }

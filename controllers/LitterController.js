@@ -43,7 +43,9 @@ module.exports = {
             };
 
         litter.user = user.id || global.userId; //it's temp. before applying the login api
-        console.log(litter);
+        console.log('--->body',req.body);
+        console.log('--->litter:',litter);
+
 
         LitterService.create(litter)
             .then(result => {
