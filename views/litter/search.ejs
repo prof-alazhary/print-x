@@ -41,16 +41,16 @@
         <div class="section">
                 <h1  align="center">بحث عن خطاب </h1>
                 <div class="search">
-                        <form class="form-inline">
+                        <form class="form-inline" action="/api/litter/search" method="POST">
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="اسم التاجر" >
+                                <input name="dealer" class="form-control" type="text" placeholder="اسم التاجر" >
                                 <button type="submit" class="btn btn-primary">
                                 <i class="glyphicon glyphicon-search" ></i>
                                 </button>
                             </div>
                         </form>
                         <br>
-                        <form class="form-inline">
+                        <form class="form-inline" action="/api/litter/search" method="POST">
                             <div class="form-group">
                                 <input class="form-control" type="text" placeholder="رقم الشاسية">
                                 <input class="form-control" type="text" placeholder="رقم الموتور" >
@@ -60,6 +60,9 @@
                             </div>
                         </form>
                 </div>
+                
+                <br>
+                <%if(typeof litters!= 'undefined' && litters.length) {%>
                 <div class="results">
                     <table class="table table-striped">
                         <thead>
@@ -91,6 +94,7 @@
                             </tr>
                         </tbody>
                     </table>
+                    <%}%>
                 </div>
         </div>
     </div>

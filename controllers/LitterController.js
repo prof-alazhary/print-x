@@ -11,6 +11,7 @@ module.exports = {
         //we will use the following way to wrapping up litter object until we use (body-barser) 
             {
                 //user,
+                dealer,
                 destination,
                 model,
                 chassisNo,
@@ -24,6 +25,7 @@ module.exports = {
             } = req.body,
             litter = {
                 //user,
+                dealer,
                 destination,
                 machineData: {
                     model,

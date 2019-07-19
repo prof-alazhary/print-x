@@ -67,7 +67,7 @@ module.exports = {
 function testPDFkit(data) {
     const PDFDocument = require('pdfkit');
     const doc = new PDFDocument();
-    const { destination, machineData, customerData } = data,
+    const { dealer, destination, machineData, customerData } = data,
         {
             model,
             chassisNo,
@@ -78,10 +78,10 @@ function testPDFkit(data) {
         { name, nationalId, address, city } = customerData;
 
     //set background img for testing phase..
-    // doc.image('public/images/litter template.jpg', 0, 0, {
-    //     width: 605,
-    //     height: 830
-    // });
+    doc.image('public/images/litter template.jpg', 0, 0, {
+        width: 605,
+        height: 830
+    });
     //test-print3.pdf
 
     //set arabic font for arabic text inputs to pdf document.

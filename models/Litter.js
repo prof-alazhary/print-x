@@ -6,6 +6,10 @@ const litterSchema = new Schema({
         type: String,
         required: true
     },
+    dealer:{
+        type: String,
+        required: true
+    },
     destination:{
         type: String,
         default: ""
@@ -36,6 +40,7 @@ const litterSchema = new Schema({
 });
 
 litterSchema.index({'machineData.chassisNo':'text', 'machineData.motorNo': 1, 'machineData.model': 1 });
+litterSchema.index({"dealer":"text"});
 
 const Litter = model('Litter', litterSchema);
 
