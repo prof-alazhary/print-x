@@ -8,14 +8,16 @@ router.get('/new', LitterController.new);
 
 router.get('/search', LitterController.search);
 
-router.get('/:id', LitterController.edit);
+router.get('/:id', LitterController.select);
+
+router.get('/:id/edit', LitterController.edit);
 
 router.post('/new', LitterController.create);
 
-router.put('/:id', LitterController.update);
+router.post('/search', LitterController.find);
+
+router.post('/:id', LitterController.update);
 
 router.delete('/:id', LitterController.delete)
-
-router.post('/search', LitterController.find);
 
 module.exports = router;

@@ -26,13 +26,16 @@ module.exports = {
             }
         });
     },
+    edit(litterId){
+        return Litter.findOne({ _id: ObjectId(litterId) })
+    },
     update(litterId, litter) {
         return Litter.updateOne(
             { _id: ObjectId(litterId) },
             {
                 $set: litter
-            }
-        );
+            })
+            .then(()=>this.select(litterId));
     },
     select(litterId) {
         return Litter.findOne({ _id: ObjectId(litterId) }).then(litter => {
@@ -42,18 +45,18 @@ module.exports = {
     delete(litterId) {
         return Litter.deleteOne({ _id: ObjectId(litterId) });
     },
-    search(criteria) {
-        const { chassisNo, motorNo, customerName, operator } = criteria || {};
+    search(criteria={}) {
+        const { chassisNo, motorNo, dealer } = criteria;
 
-        if (customerName) {
+        if (dealer) {
             criteria = {
-                'customerData.name': {
-                    $regex: new RegExp(`^${customerName}.*`)
+                'dealer': {
+                    $regex: new RegExp(`^${dealer}.*`)
                 }
             };
         } else {
             criteria = {
-                [operator]: [
+                $or: [
                     { 'machineData.chassisNo': chassisNo },
                     { 'machineData.motorNo': motorNo }
                 ]

@@ -60,7 +60,6 @@ module.exports = {
     select(req, res, next) {
         LitterService.select(req.params.id)
             .then(result => {
-                //res.json(result);
                 result.pipe(res);
                 result.end();
             })
@@ -69,12 +68,16 @@ module.exports = {
             });
     },
     edit(req, res, next){
-
+        LitterService.edit(req.params.id)
+        .then(litter=>{
+            res.render('litter/edit',{litter})
+        })
     },
     update(req, res, next) {
         LitterService.update(req.params.id, req.body)
             .then(result => {
-                res.json(result);
+                result.pipe(res);
+                result.end();
             })
             .catch(err => {
                 res.json(err.message);
@@ -94,8 +97,9 @@ module.exports = {
     },
     find(req, res, next) {
         LitterService.search(req.body)
-            .then(result => {
-                res.json(result);
+            .then(litters => {
+                //res.json(result);
+                res.render('litter/search',{litters});
             })
             .catch(err => {
                 res.json(err.message);

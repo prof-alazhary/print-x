@@ -48,12 +48,10 @@
                                 <i class="glyphicon glyphicon-search" ></i>
                                 </button>
                             </div>
-                        </form>
-                        <br>
-                        <form class="form-inline" action="/api/litter/search" method="POST">
+                            <br>
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="رقم الشاسية">
-                                <input class="form-control" type="text" placeholder="رقم الموتور" >
+                                <input name="chassisNo" class="form-control" type="text" placeholder="رقم الشاسية">
+                                <input name="motorNo" class="form-control" type="text" placeholder="رقم الموتور" >
                                 <button type="submit" class="btn btn-primary">
                                 <i class="glyphicon glyphicon-search" ></i>
                                 </button>
@@ -67,31 +65,28 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
+                                <th  >م</th>
+                                <th  >التاجر</th>
+                                <th >الموديل</th>
+                                <th >الشاسية</th>
+                                <th >الموتور</th>
+                                <th >خيارات</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <%litters.forEach((litter,idx)=>{%>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
+                                <th ><%=idx+1%></th>
+                                <th ><%=litter.dealer%></th>
+                                <td><%=litter.machineData.model%></td>
+                                <td><%=litter.machineData.chassisNo%></td>
+                                <td><%=litter.machineData.motorNo%></td>
+                                <td>
+                                    <a href=<%=litter._id+'/edit'%> > <i class="glyphicon glyphicon-pencil"></i></a>  &nbsp  &nbsp
+                                    <a href=<%=litter._id%> > <i class="glyphicon glyphicon-print"></i></a>
+                                </td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
+                            <%})%>
                         </tbody>
                     </table>
                     <%}%>
