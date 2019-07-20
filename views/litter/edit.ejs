@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Contact - Zerotype Website Template</title>
+	<link rel="stylesheet" href="/static/css/style.css" type="text/css">
+</head>
+<body>
+	<div id="header">
+		<div>
+			<div class="logo">
+				<a href="index.html"></a>
+			</div>
+			<ul id="navigation">
+				<li>
+					<a href="#"><h2>اتصل بنا</h2></a>
+				</li>
+				<li>
+					<a href="/api/litter/search"><h2>بحث</h2></a>
+				</li>
+				<li class="active">
+					<a href="/api/litter/new"><h2>خطاب</h2></a>
+				</li>
+			</ul>
+		</div>
+    </div>
+    <%
+    const { dealer, destination, machineData, customerData, _id } = litter,
+    {
+        model,
+        chassisNo,
+        motorNo,
+        manufactureYear,
+        color
+    } = machineData,
+    { name, nationalId, address, city } = customerData;
+    %>
+	<div id="contents">
+		<form action="/api/litter/<%=_id%>" method="post" class="submit-form">
+		<div class="section">
+			<h1  align="center">تعديل خطاب</h1>
+			<div>
+				<p>
+					<h2>
+						بيانات قائد المرور
+					</h2>
+				</p>
+		
+					<label for="destination">قائد مرور:</label>
+					<input name="destination" type="text" value=<%=destination%> />
+
+					<label for="dealer">التاجر:</label>
+					<input name="dealer" type="text" value=<%=dealer%> />
+					
+					<hr>
+			</div>
+				<div style="width: 400px; float: right;">
+
+						<p>
+							<h2>
+								بيانات المركبة
+							</h2>
+						</p>
+		
+						<label for="model">الطراز:</label>
+						<input name="model" type="text" value=<%=model%> />
+						<br>
+		
+						<label for="chassis">الشاسية:</label>
+						<input name="chassisNo" type="text" value=<%=chassisNo%> />
+						<br>
+		
+						<label for="motor">الموتور:</label>
+						<input name="motorNo" type="text" value=<%=motorNo%> />
+						<br>
+		
+						<label for="year">سنة الصنع:</label>
+						<input name="manufactureYear" type="text" value=<%=manufactureYear%> />
+						<br>
+		
+						<label for="color">اللون:</label>
+						<input name="color" type="text" value=<%=color%> />
+						<br>
+
+				</div>
+				<div style="width: 400px; float: left;">
+						<p>
+							<h2>
+								بيانات العميل
+							</h2>
+						</p>
+		
+						<label for="name">الإسم:</label>
+						<input name="name" type="text" value=<%=name%> />
+						<br>
+		
+						<label for="nationalid">رقم قومي:</label>
+						<input name="nationalId" type="text" value=<%=nationalId%> />
+						<br>
+		
+						<label for="address">المقيم:</label>
+						<input name="address" type="text" value=<%=address%> />
+						<br>
+		
+						<label for="city">المحافظة:</label>
+						<input name="city" type="text" value=<%=city%> />
+						<br>
+						<br>
+						<div style="width: 250px; float: left;">
+							
+					<input type="submit" value="تعديل وطباعة"/>
+					<br>
+					
+				        </div>
+				</div>
+				
+				
+			</div>
+		</form>
+
+	</div>
+	<div id="footer">
+		<div class="clearfix">
+			<div id="connect">
+				<a href="#" target="_blank" class="facebook"></a><a href="#" target="_blank" class="googleplus"></a><a href="#" target="_blank" class="twitter"></a><a href="#" target="_blank" class="tumbler"></a>
+			</div>
+			<p>
+				© 2020 Alazhary. All Rights Reserved.
+			</p>
+		</div>
+	</div>
+</body>
+</html>
