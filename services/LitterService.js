@@ -82,8 +82,6 @@ function testPDFkit(data) {
 
     let { dealer } = data;
 
-    console.log('dealer--->',dealer)
-
     //set background img for testing phase..
     doc.image('public/images/litter template.jpg', 0, 0, {
         width: 605,

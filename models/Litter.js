@@ -44,6 +44,6 @@ litterSchema.index({"dealer":"text"});
 
 const Litter = model('Litter', litterSchema);
 
-promisify(Litter,['updateOne','update','find', 'findOne','create','deleteOne']);
+promisify(Litter,['updateOne','update','find', 'findOne','create','deleteOne', 'deleteMany']);
 
 module.exports = Litter;

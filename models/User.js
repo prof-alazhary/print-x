@@ -15,6 +15,6 @@ const userSchema = new Schema({
 
 const User = model('User', userSchema);
 
-promisify(User,['updateOne','update','find', 'findOne','create','deleteOne']);
+promisify(User,['updateOne','update','find', 'findOne','create','deleteOne', 'deleteMany']);
 
 module.exports = User;

@@ -1,8 +1,11 @@
 const UserService = require('./UserService');
+const migration = require('../migration');
 
 module.exports = {
     init() {
-        return Promise.all([this.createFristUser()]);
+        return migration.run().then(() => {
+            return Promise.all([this.createFristUser()]);
+        });
     },
     createFristUser() {
         return UserService.select().then(user => {
