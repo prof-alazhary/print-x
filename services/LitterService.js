@@ -75,7 +75,7 @@ function testPDFkit(data) {
             model,
             chassisNo,
             motorNo,
-            motorNomanufactureYear,
+            manufactureYear,
             color
         } = machineData,
         { name, nationalId, address, city } = customerData;
@@ -102,7 +102,7 @@ function testPDFkit(data) {
 
     doc.text(motorNo, 320, 420);
 
-    doc.text(motorNomanufactureYear , 320, 450);
+    doc.text(manufactureYear , 320, 450);
 
     doc.text(color, 320, 480);
 
@@ -114,17 +114,22 @@ function testPDFkit(data) {
 
     doc.text(city, 80, 570);
 
-    let dealerX = 490;
-    if(dealer.split(' ').length>1){
-        dealerX = 475
+    let dealerX = 510;
+    if(dealer.split(' ').length > 1){
+        dealerX = 485
         dealer = rtlText(dealer);
     }
 
-    console.log(dealer)
-
     doc.fontSize(17);
 
-    doc.text(dealer, dealerX, 680);
+    console.log('dealerX-->',dealerX)
+
+    //This is a footer
+    doc.text(dealer, dealerX, doc.page.height - 20, {
+        lineBreak: false
+    });
+
+   // doc.text(dealer, dealerX, 680);
 
     return doc;
 }

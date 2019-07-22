@@ -6,46 +6,8 @@ module.exports = {
         res.render('litter/new');
     },
     create(req, res, next) {
-        console.log('-->create');
-        const user = req.user || {},
-        //we will use the following way to wrapping up litter object until we use (body-barser) 
-            {
-                //user,
-                dealer,
-                destination,
-                model,
-                chassisNo,
-                motorNo,
-                manufactureYear,
-                color,
-                name,
-                nationalId,
-                address,
-                city
-            } = req.body,
-            litter = {
-                //user,
-                dealer,
-                destination,
-                machineData: {
-                    model,
-                    chassisNo,
-                    motorNo,
-                    manufactureYear,
-                    color,
-                },
-                customerData: {
-                    name,
-                    nationalId,
-                    address,
-                    city
-                },
-            };
-
-        litter.user = user.id || global.userId; //it's temp. before applying the login api
-        console.log('--->body',req.body);
-        console.log('--->litter:',litter);
-
+            //we will use the following way to wrapping up litter object until we use (body-barser)
+        const litter = prepareLitter(req.body);
 
         LitterService.create(litter)
             .then(result => {
@@ -54,7 +16,7 @@ module.exports = {
             })
             .catch(err => {
                 //res.json(err.message);
-                res.render('error',{err})
+                res.render('error', { err });
             });
     },
     select(req, res, next) {
@@ -67,14 +29,15 @@ module.exports = {
                 res.json(err.message);
             });
     },
-    edit(req, res, next){
-        LitterService.edit(req.params.id)
-        .then(litter=>{
-            res.render('litter/edit',{litter})
-        })
+    edit(req, res, next) {
+        LitterService.edit(req.params.id).then(litter => {
+            res.render('litter/edit', { litter });
+        });
     },
     update(req, res, next) {
-        LitterService.update(req.params.id, req.body)
+        const litter = prepareLitter(req.body);
+
+        LitterService.update(req.params.id, litter)
             .then(result => {
                 result.pipe(res);
                 result.end();
@@ -92,17 +55,56 @@ module.exports = {
                 res.json(err.message);
             });
     },
-    search(req,res,next) {
+    search(req, res, next) {
         res.render('litter/search');
     },
     find(req, res, next) {
         LitterService.search(req.body)
             .then(litters => {
                 //res.json(result);
-                res.render('litter/search',{litters});
+                res.render('litter/search', { litters });
             })
             .catch(err => {
                 res.json(err.message);
             });
     }
 };
+
+function prepareLitter(bodyObj) {
+    const {
+            //user,
+            dealer,
+            destination,
+            model,
+            chassisNo,
+            motorNo,
+            manufactureYear,
+            color,
+            name,
+            nationalId,
+            address,
+            city
+        } = bodyObj,
+        litter = {
+            //user,
+            dealer,
+            destination,
+            machineData: {
+                model,
+                chassisNo,
+                motorNo,
+                manufactureYear,
+                color
+            },
+            customerData: {
+                name,
+                nationalId,
+                address,
+                city
+            }
+        };
+
+    litter.user = global.userId; //it's temp. before applying the login api
+
+    return litter;
+}
