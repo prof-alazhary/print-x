@@ -96,45 +96,44 @@ function testPDFkit(data) {
 
     doc.text(destination, 145, 390);
 
-    doc.text(model, 320, 360);
+    doc.text(model, 390, 360);
 
     doc.text(chassisNo, 320, 390);
 
-    doc.text(motorNo, 320, 420);
+    doc.text(motorNo, 370, 420);
 
-    doc.text(manufactureYear , 320, 450);
+    doc.text(manufactureYear , 390, 450);
 
-    doc.text(color, 320, 480);
+    doc.text(color, 390, 480);
 
-    doc.text(rtlText(name), 270, 540);
+    let nameX = 300;
+    if(dealer.split(' ').length > 3){
+        nameX = 270;
+    }
+    doc.text(rtlText(name), nameX, 540);
 
     doc.text(nationalId, 60, 540);
 
-    doc.text(rtlText(address), 300, 570);
+    doc.text(rtlText(address), 440, 570);
 
-    doc.text(city, 80, 570);
-
+    doc.text(city, 100, 570);
+    
+    doc.fontSize(17);
     let dealerX = 510;
     if(dealer.split(' ').length > 1){
         dealerX = 485
         dealer = rtlText(dealer);
     }
-
-    doc.fontSize(17);
-
-    console.log('dealerX-->',dealerX)
-
     //This is a footer
     doc.text(dealer, dealerX, doc.page.height - 20, {
         lineBreak: false
     });
 
-   // doc.text(dealer, dealerX, 680);
-
     return doc;
 }
 
 function rtlText(text) {
+    text =" "+text+" ";
     return text
         .split(' ')
         .reverse()
