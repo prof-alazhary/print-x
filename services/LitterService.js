@@ -109,9 +109,9 @@ function testPDFkit(data) {
 
     doc.text(color, 390, 480);
 
-    let nameX = 300;
+    let nameX = 280;
     if(dealer.split(' ').length > 3){
-        nameX = 270;
+        nameX = 250;
     }
     doc.text(rtlText(name), nameX, 540);
 
