@@ -4,7 +4,7 @@ const User = require('./models/User');
 module.exports = {
     run() {
         return Promise.all([
-            this.dropLitters()
+            //this.dropLitters()
         ]);
     },
     dorpDB() {
