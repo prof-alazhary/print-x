@@ -2,11 +2,10 @@ const LitterService = require('../services/LitterService');
 
 module.exports = {
     new(req, res, next) {
-        console.log('-->new');
         res.render('litter/new');
     },
     create(req, res, next) {
-            //we will use the following way to wrapping up litter object until we use (body-barser)
+        //we will use the following way to wrapping up litter object until we use (body-barser)
         const litter = prepareLitter(req.body);
 
         LitterService.create(litter)
@@ -26,13 +25,19 @@ module.exports = {
                 result.end();
             })
             .catch(err => {
-                res.json(err.message);
+                //res.json(err.message);
+                res.render('error', { err });
             });
     },
     edit(req, res, next) {
-        LitterService.edit(req.params.id).then(litter => {
+        LitterService.edit(req.params.id)
+        .then(litter => {
             res.render('litter/edit', { litter });
-        });
+        })
+        .catch(err => {
+            //res.json(err.message);
+            res.render('error', { err });
+        });;
     },
     update(req, res, next) {
         const litter = prepareLitter(req.body);
@@ -43,10 +48,12 @@ module.exports = {
                 result.end();
             })
             .catch(err => {
-                res.json(err.message);
+                //res.json(err.message);
+                res.render('error', { err });
             });
     },
     delete(req, res, next) {
+        // NOT Used Yet!!
         LitterService.delete(req.params.id)
             .then(result => {
                 res.json(result);
@@ -65,7 +72,8 @@ module.exports = {
                 res.render('litter/search', { litters });
             })
             .catch(err => {
-                res.json(err.message);
+                //res.json(err.message);
+                res.render('error', { err });
             });
     }
 };

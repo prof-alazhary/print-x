@@ -2,48 +2,59 @@ const { model, Schema } = require('../config/mongoose'),
     promisify = require('../helpers/promisify');
 
 const litterSchema = new Schema({
-    user:{
+    user: {
         type: String,
         required: true
     },
-    dealer:{
+    dealer: {
         type: String,
         required: true
     },
-    destination:{
+    destination: {
         type: String,
-        default: ""
+        default: ''
     },
-    machineData:{
+    machineData: {
+        model: String,
+        chassisNo: {
+            type: String,
+            unique: true
+        },
+        motorNo: {
+            type: String,
+            unique: true
+        },
+        manufactureYear: String,
+        color: String
+    },
+    customerData: {
         type: Object,
-        default:{
-            model:"",
-            chassisNo:"",
-            motorNo:"",
-            manufactureYear:"",
-            color:""
+        default: {
+            name: '',
+            nationalId: '',
+            address: '',
+            city: ''
         }
     },
-    customerData:{
-        type: Object,
-        default:{
-            name:"",
-            nationalId:"",
-            address:"",
-            city:""
-        }
-    },
-    createdAt:{
+    createdAt: {
         type: Date,
         default: Date.now
     }
 });
 
-litterSchema.index({'machineData.chassisNo':'text', 'machineData.motorNo': 1, 'machineData.model': 1 });
-litterSchema.index({"dealer":"text"});
+//litterSchema.index({'machineData.chassisNo':'text', 'machineData.motorNo': 1, 'machineData.model': 1 });
+//litterSchema.index({"dealer":"text"});
 
 const Litter = model('Litter', litterSchema);
 
-promisify(Litter,['updateOne','update','find', 'findOne','create','deleteOne', 'deleteMany']);
+promisify(Litter, [
+    'updateOne',
+    'update',
+    'find',
+    'findOne',
+    'create',
+    'deleteOne',
+    'deleteMany'
+]);
 
 module.exports = Litter;

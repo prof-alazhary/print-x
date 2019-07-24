@@ -6,10 +6,9 @@ module.exports = {
         const { model, chassisNo, motorNo } = litter.machineData;
 
         return Litter.findOne({
-            $and: [
+            $or: [
                 { 'machineData.motorNo': motorNo },
                 { 'machineData.chassisNo': chassisNo },
-                { 'machineData.model': model }
             ]
         }).then(_litter => {
 
