@@ -68,7 +68,11 @@ module.exports = {
 
 function testPDFkit(data) {
     const PDFDocument = require('pdfkit');
-    const doc = new PDFDocument();
+    const doc = new PDFDocument({
+        //layout: 'landscape', // or 'letter' ....
+        size: [612, 820] // [doc.page.width, doc.page.height]
+      });
+    
     const { destination, machineData, customerData } = data,
         {
             model,
@@ -123,8 +127,9 @@ function testPDFkit(data) {
         dealerX = 485
         dealer = rtlText(dealer);
     }
+    console.log('--->',doc.page.height,doc.page.width)
     //This is a footer
-    doc.text(dealer, dealerX, doc.page.height - 20, {
+    doc.text(dealer, dealerX, doc.page.height - 30, {
         lineBreak: false
     });
 
