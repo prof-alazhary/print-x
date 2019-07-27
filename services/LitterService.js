@@ -28,6 +28,7 @@ module.exports = {
         return Litter.findOne({ _id: ObjectId(litterId) });
     },
     update(litterId, litter) {
+        litter.updatedAt = Date.now;
         return Litter.updateOne(
             { _id: ObjectId(litterId) },
             {
