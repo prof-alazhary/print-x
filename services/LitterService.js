@@ -116,10 +116,10 @@ function testPDFkit(data) {
             nameX = 280;
             break;
         case 4:
-            nameX = 300;
+            nameX = 310;
             break;
         case 3:
-            nameX = 310;
+            nameX = 320;
             break;
         default:
         nameX = 260;
