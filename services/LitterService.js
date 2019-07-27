@@ -28,7 +28,7 @@ module.exports = {
         return Litter.findOne({ _id: ObjectId(litterId) });
     },
     update(litterId, litter) {
-        litter.updatedAt = Date.now;
+        litter.updatedAt = Date.now();
         return Litter.updateOne(
             { _id: ObjectId(litterId) },
             {
@@ -80,10 +80,10 @@ function testPDFkit(data) {
     let { dealer } = data;
 
     //set background img for testing phase..
-    doc.image('public/images/litter template.jpg', 0, 0, {
-        width: 605,
-        height: 830
-    });
+    // doc.image('public/images/litter template.jpg', 0, 0, {
+    //     width: 605,
+    //     height: 830
+    // });
     //test-print3.pdf
 
     //set arabic font for arabic text inputs to pdf document.
