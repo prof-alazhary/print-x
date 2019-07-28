@@ -79,6 +79,9 @@ module.exports = {
 };
 
 function prepareLitter(bodyObj) {
+    
+    trimInputs(bodyObj);
+
     const {
             //user,
             dealer,
@@ -115,4 +118,9 @@ function prepareLitter(bodyObj) {
     litter.user = global.userId; //it's temp. before applying the login api
 
     return litter;
+}
+function trimInputs(object){
+  for (const key in object) {
+          object[key] = object[key].trim();
+  }
 }
