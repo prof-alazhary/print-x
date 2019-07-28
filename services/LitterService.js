@@ -104,10 +104,10 @@ function testPDFkit(data) {
 
     doc.text(manufactureYear, 390, 450 + 10);
 
-    doc.text(color, 390, 480) + 10;
-
     doc.font('public/fonts/Scheherazade-Bold.ttf');
     doc.fontSize(20);
+    
+    doc.text(color, 390, 480) + 10;
 
     let nameX = 0;
     const words = name.split(' ');
