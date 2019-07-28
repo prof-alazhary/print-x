@@ -66,6 +66,7 @@ module.exports = {
         res.render('litter/search');
     },
     find(req, res, next) {
+        trimInputs(req.body);
         LitterService.search(req.body)
             .then(litters => {
                 //res.json(result);
@@ -121,6 +122,6 @@ function prepareLitter(bodyObj) {
 }
 function trimInputs(object){
   for (const key in object) {
-          object[key] = object[key].trim();
+    object[key] = object[key].trim();
   }
 }
