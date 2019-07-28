@@ -106,7 +106,7 @@ function testPDFkit(data) {
 
     doc.text(color, 390, 480) + 10;
 
-    doc.font('public/fonts/Scheherazade-Regular.ttf');
+    doc.font('public/fonts/Scheherazade-Bold.ttf');
     doc.fontSize(20);
 
     let nameX = 0;
