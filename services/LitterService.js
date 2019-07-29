@@ -94,18 +94,18 @@ function testPDFkit(data) {
     doc.text(destination, 145, 390 - 5);
 
     doc.font('Times-Bold');
-    doc.fontSize(18);
+    doc.fontSize(19);
 
     doc.text(model, 370, 360 + 10);
 
-    doc.text(chassisNo, 315, 390 + 10);
+    doc.text(chassisNo, 315 - 5, 390 + 10);
 
     doc.text(motorNo, 370, 420 + 10);
 
     doc.text(manufactureYear, 390, 450 + 10);
 
     doc.font('public/fonts/Scheherazade-Bold.ttf');
-    doc.fontSize(20);
+    doc.fontSize(21);
     
     doc.text(color, 390, 480) + 10;
 
@@ -114,10 +114,10 @@ function testPDFkit(data) {
 
     switch (words.length) {
         case 5:
-            nameX = 280;
+            nameX = 260;
             break;
         case 4:
-            nameX = 310;
+            nameX = 300;
             break;
         case 3:
             nameX = 320;
