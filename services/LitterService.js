@@ -91,7 +91,7 @@ function testPDFkit(data) {
 
     doc.text(rtlText(destination), 350, 240);
 
-    doc.text(drtlText(destination), 145, 390 - 5);
+    doc.text(rtlText(destination), 145, 390 - 5);
 
     doc.font('Times-Bold');
     doc.fontSize(19);
