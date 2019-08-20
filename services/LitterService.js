@@ -89,9 +89,9 @@ function testPDFkit(data) {
     //set arabic font for arabic text inputs to pdf document.
     doc.font('public/fonts/Scheherazade-Regular.ttf').fontSize(25);
 
-    doc.text(destination, 350, 240);
+    doc.text(rtlText(destination), 350, 240);
 
-    doc.text(destination, 145, 390 - 5);
+    doc.text(drtlText(destination), 145, 390 - 5);
 
     doc.font('Times-Bold');
     doc.fontSize(19);
@@ -133,7 +133,7 @@ function testPDFkit(data) {
 
     doc.text(rtlText(address), 420, 570);
 
-    doc.text(city, 100, 570);
+    doc.text(rtlText(city), 100, 570);
 
     doc.fontSize(17);
     let dealerX = 510;
