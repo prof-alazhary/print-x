@@ -1,0 +1,92 @@
+function createPDFDocument(data) {
+    const PDFDocument = require('pdfkit');
+    const doc = new PDFDocument({
+        //layout: 'landscape', // or 'letter' ....
+        size: [612, 820] // [doc.page.width, doc.page.height]
+    });
+
+    const { destination, machineData, customerData } = data,
+        { model, chassisNo, motorNo, manufactureYear, color } = machineData,
+        { name, nationalId, address, city } = customerData;
+
+    let { dealer } = data;
+
+    //set background img for testing phase..
+    // doc.image('public/images/litter template.jpg', 0, 0, {
+    //     width: 605,
+    //     height: 830
+    // });
+    //test-print3.pdf
+
+    //set arabic font for arabic text inputs to pdf document.
+    doc.font('public/fonts/Scheherazade-Regular.ttf').fontSize(25);
+
+    doc.text(rtlText(destination), 350, 240);
+
+    doc.text(rtlText(destination), 145, 390 - 5);
+
+    doc.font('Times-Bold');
+    doc.fontSize(19);
+
+    doc.text(model, 370, 360 + 10);
+
+    doc.text(chassisNo, 315 - 5, 390 + 10);
+
+    doc.text(motorNo, 370, 420 + 10);
+
+    doc.text(manufactureYear, 390, 450 + 10);
+
+    doc.font('public/fonts/Scheherazade-Bold.ttf');
+    doc.fontSize(21);
+    
+    doc.text(color, 390, 480) + 10;
+
+    let nameX = 0;
+    const words = name.split(' ');
+
+    switch (words.length) {
+        case 5:
+            nameX = 260;
+            break;
+        case 4:
+            nameX = 300;
+            break;
+        case 3:
+            nameX = 320;
+            break;
+        default:
+        nameX = 260;
+            break;
+    }
+
+    doc.text(rtlText(name), nameX, 540);
+
+    doc.text(nationalId, 60, 540);
+
+    doc.text(rtlText(address), 420, 570);
+
+    doc.text(rtlText(city), 100, 570);
+
+    doc.fontSize(17);
+    let dealerX = 510;
+    if (dealer.split(' ').length > 1) {
+        dealerX = 485;
+        dealer = rtlText(dealer);
+    }
+    //This is a footer
+    doc.text(dealer, dealerX, doc.page.height - 30, {
+        lineBreak: false
+    });
+
+    return doc;
+}
+
+function rtlText(text) {
+    text = ' ' + text + ' ';
+    return text
+        .split(' ')
+        .reverse()
+        .join(' ');
+}
+
+module.exports = createPDFDocument;
