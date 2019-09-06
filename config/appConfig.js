@@ -1,4 +1,4 @@
 module.exports = {
-    appName: 'Simple Node App',
-    secret: 'myJWTKeySecret'
+    appName: 'Print-X',
+    secret: 'myJWTKeySecret',
 }

@@ -3,9 +3,15 @@ const migration = require('../migration');
 
 module.exports = {
     init() {
+        this.initGlobals();
         return migration.run().then(() => {
             return Promise.all([this.createFristUser()]);
         });
+    },
+    initGlobals(){
+        global.Promise = require('bluebird');
+        global.appConfig = require('./config/appConfig');
+        global.object = require('./helpers/object');
     },
     createFristUser() {
         return UserService.select().then(user => {
