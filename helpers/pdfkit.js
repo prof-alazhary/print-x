@@ -38,28 +38,34 @@ function createPDFDocument(data) {
 
     doc.font('public/fonts/Scheherazade-Bold.ttf');
     doc.fontSize(21);
-    
-    doc.text(color, 390, 480) + 10;
 
-    let nameX = 0;
-    const words = name.split(' ');
+    doc.text(color, 390, 480);
 
-    switch (words.length) {
-        case 5:
-            nameX = 260;
-            break;
-        case 4:
-            nameX = 300;
-            break;
-        case 3:
-            nameX = 320;
-            break;
-        default:
-        nameX = 260;
-            break;
-    }
+    // let nameX = 0;
+    // const words = name.split(' ');
+    // switch (words.length) {
+    //     case 5:
+    //         nameX = 260;
+    //         break;
+    //     case 4:
+    //         nameX = 300;
+    //         break;
+    //     case 3:
+    //         nameX = 320;
+    //         break;
+    //     default:
+    //     nameX = 260;
+    //         break;
+    // }
+    // doc.text(rtlText(name), nameX, 540);
 
-    doc.text(rtlText(name), nameX, 540);
+    let nameX = 460,
+        chars = name.length;
+
+    nameX = nameX - (chars * 6);
+
+    doc.text(rtlText(name), nameX - chars, 540);
+
 
     doc.text(nationalId, 60, 540);
 

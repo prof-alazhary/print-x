@@ -1,3 +1,4 @@
+global.Promise = require('bluebird');
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -7,6 +8,7 @@ const app = express();
 
 const BootstrapService = require('./services/BootstrapService');
 
+BootstrapService.initGlobals();
 BootstrapService.init().then(()=>null);
 
 // view engine setup
