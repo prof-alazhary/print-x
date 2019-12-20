@@ -41,24 +41,6 @@ function createPDFDocument(data) {
 
     doc.text(color, 390, 480);
 
-    // let nameX = 0;
-    // const words = name.split(' ');
-    // switch (words.length) {
-    //     case 5:
-    //         nameX = 260;
-    //         break;
-    //     case 4:
-    //         nameX = 300;
-    //         break;
-    //     case 3:
-    //         nameX = 320;
-    //         break;
-    //     default:
-    //     nameX = 260;
-    //         break;
-    // }
-    // doc.text(rtlText(name), nameX, 540);
-
     let nameX = 460,
         chars = name.length;
 
