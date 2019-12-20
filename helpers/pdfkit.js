@@ -5,7 +5,7 @@ function createPDFDocument(data) {
         size: [612, 820] // [doc.page.width, doc.page.height]
     });
 
-    const { destination, machineData, customerData } = data,
+    const { destination, machineData, customerData, createdAt, updatedAt } = data,
         { model, chassisNo, motorNo, manufactureYear, color } = machineData,
         { name, nationalId, address, city } = customerData;
 
@@ -66,6 +66,11 @@ function createPDFDocument(data) {
         lineBreak: false
     });
 
+    const printData = updatedAt  ? getFormattedDate(updatedAt) : getFormattedDate(createdAt);
+    doc.text(printData, dealerX-100, doc.page.height - 30, {
+        lineBreak: false
+    });
+
     return doc;
 }
 
@@ -75,6 +80,18 @@ function rtlText(text) {
         .split(' ')
         .reverse()
         .join(' ');
+}
+
+function getFormattedDate(date) {
+    var year = date.getFullYear();
+  
+    var month = (1 + date.getMonth()).toString();
+    month = month.length > 1 ? month : '0' + month;
+  
+    var day = date.getDate().toString();
+    day = day.length > 1 ? day : '0' + day;
+    
+    return day + '/' + month + '/' + year;
 }
 
 module.exports = createPDFDocument;
