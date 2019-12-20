@@ -1,7 +1,19 @@
 <!DOCTYPE HTML>
 <!-- Website template by freewebsitetemplates.com -->
 <html>
-
+<%
+function getFormattedDate(date) {
+    var year = date.getFullYear();
+  
+    var month = (1 + date.getMonth()).toString();
+    month = month.length > 1 ? month : '0' + month;
+  
+    var day = date.getDate().toString();
+    day = day.length > 1 ? day : '0' + day;
+    
+    return day + '/' + month + '/' + year;
+}
+%>
 <head>
     <meta charset="UTF-8">
     <title><%=appConfig.appName%></title>
@@ -70,6 +82,8 @@
                                 <th >الموديل</th>
                                 <th >الشاسية</th>
                                 <th >الموتور</th>
+                                <th >تاريخ الانشاء</th>
+                                <th >تاريخ التعديل</th>
                                 <th >خيارات</th>
                             </tr>
                         </thead>
@@ -81,6 +95,8 @@
                                 <td><%=litter.machineData.model%></td>
                                 <td><%=litter.machineData.chassisNo%></td>
                                 <td><%=litter.machineData.motorNo%></td>
+                                <td><%=getFormattedDate(litter.createdAt)%></td>
+                                <td><%=litter.updatedAt ? getFormattedDate(litter.updatedAt) : '' %></td>
                                 <td>
                                     <a href=<%=litter._id+'/edit'%> > <i class="glyphicon glyphicon-pencil"></i></a>  &nbsp  &nbsp
                                     <a href=<%=litter._id%> > <i class="glyphicon glyphicon-print"></i></a>
