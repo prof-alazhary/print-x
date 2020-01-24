@@ -8,7 +8,8 @@ router.get('/', function(req, res, next) {
   // object.printKeys(headers)
 
   //res.render('index', { title: appConfig.appName });
-  res.redirect('/api/litter/new');
+  //res.redirect('/api/litter/new');
+  res.redirect('/api/user/login');
 });
 
 module.exports = router;
