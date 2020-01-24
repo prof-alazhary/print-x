@@ -9,5 +9,8 @@ module.exports = {
         return User.findOne({
             ...(userId && { _id: ObjectId(userId)})
         });
+    },
+    login(){
+        console.log("test login...")
     }
 };
