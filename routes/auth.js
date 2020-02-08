@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const verifyToken = require('../policies/verifyToken');
-const UserController =  require('../controllers/UserController');
+const AuthController =  require('../controllers/AuthController');
 
-router.get('/someRoute', ()=>{});
+router.get('/login', AuthController.login);
 
 module.exports = router;
