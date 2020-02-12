@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 
   //res.render('index', { title: appConfig.appName });
   //res.redirect('/api/litter/new');
-  res.redirect('/api/user/login');
+  res.redirect('/api/auth/login');
 });
 
 module.exports = router;

@@ -3,6 +3,7 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const session = require('express-session');
 const logger = require('morgan');
 const app = express();
 
@@ -10,6 +11,14 @@ const BootstrapService = require('./services/BootstrapService');
 
 BootstrapService.initGlobals();
 BootstrapService.init().then(()=>null);
+
+app.use(cookieParser());
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
