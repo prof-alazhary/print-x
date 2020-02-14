@@ -46,7 +46,7 @@ module.exports = {
         return Litter.deleteOne({ _id: ObjectId(litterId) });
     },
     search(criteria = {}) {
-        const { chassisNo, motorNo, dealer } = criteria;
+        const { chassisNo, motorNo, dealer, user } = criteria;
 
         if (dealer) {
             criteria = {
@@ -63,6 +63,7 @@ module.exports = {
             };
         }
 
+        criteria.user = user;
         return Litter.find(criteria);
     }
 };

@@ -18,11 +18,11 @@ module.exports = {
     update(id, date) {
         const { oldPass, email, newPass } = date;
         if (oldPass && email && newPass) {
-            return User.findOne({ id, password: oldPass })
+            return User.findOne({ _id: ObjectId(id), password: oldPass })
                 .then(user => {
                     if (user) {
-                        return User.update({ id }, { email, password: newPass })
-                            .then(() => User.findOne({ id }))
+                        return User.update({ _id: ObjectId(id) }, { email, password: newPass })
+                            .then(() => User.findOne({ _id: ObjectId(id) }))
                             .then(user => ({ user, message: "تم تعديل البيانات بنجاح" }));
                     } else {
                         return Promise.resolve({ message: "الباسورد القديم غير صحيح!" });

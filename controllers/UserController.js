@@ -13,6 +13,7 @@ module.exports = {
     update(req, res, next) {
         const userData = req.body;
         trimInputs(userData);
+        console.log("-------->",req.session)
         UserService.update(req.session.user.id, userData)
             .then(({ user, message }) => {
                 if (user) {
