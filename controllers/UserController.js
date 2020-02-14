@@ -11,11 +11,12 @@ module.exports = {
             });;
     },
     update(req, res, next) {
-        const user = req.body;
-        trimInputs(user);
-        UserService.update(req.session.user.id, user)
-            .then(result => {
-
+        const userData = req.body;
+        trimInputs(userData);
+        UserService.update(req.session.user.id, userData)
+            .then(user => {
+                req.session.user = user;
+                res.render('user/edit', { user , message:"تم تعديل البيانات بنجاح!"});
             })
             .catch(err => {
                 res.render('error', { err });
