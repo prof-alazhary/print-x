@@ -49,7 +49,10 @@
 		<div class="section">
 			<h1  align="center"> بيانات المستخدم</h1>
 				<div style="width: 400px; float: right;">
-		
+					<% if(typeof message != 'undefined' ){%>
+						<h2 style="color: red;"><%=message%></h2>
+						<br>
+					<%}%>
 						<label for="model">الباسورد القديم:</label>
 						<input name="oldPass" type="password" placeholder="password" />
 						<br>

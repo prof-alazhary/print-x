@@ -14,9 +14,12 @@ module.exports = {
         const userData = req.body;
         trimInputs(userData);
         UserService.update(req.session.user.id, userData)
-            .then(user => {
-                req.session.user = user;
-                res.render('user/edit', { user , message:"تم تعديل البيانات بنجاح!"});
+            .then(({ user, message }) => {
+                if (user) {
+                    req.session.user = user;
+                }
+                user = user || userData;
+                res.render('user/edit', { user, message });
             })
             .catch(err => {
                 res.render('error', { err });
