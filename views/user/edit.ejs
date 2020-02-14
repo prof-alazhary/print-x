@@ -13,7 +13,7 @@
 				<a href="/"></a>
 			</div>
 			<ul id="navigation">
-				<li>
+                <li>
 					<a href="#">
 						<h2>اتصل بنا</h2>
 					</a>
@@ -35,22 +35,44 @@
 				</li>
 				<li class="active">
 					<a href="/api/litter/new">
-						<h2>خطاب</h2
-					></a>
+						<h2>خطاب</h2>
+					</a>
 				</li>
 			</ul>
 		</div>
     </div>
-    <div class="section" >
-        <div class="block">
-            <img src="/static/images/warning.png" width="50", height="50" style="padding-right: 350px;"/>
-            <br>
-                <div class="error-message">
-                        <h1><%= err.message %></h1>
-                </div>
-        </div>
-    </div>
+    <%
+    const { email } = user;
+    %>
+	<div id="contents">
+		<form action="/api/user/update%>" method="post" class="submit-form">
+		<div class="section">
+			<h1  align="center"> بيانات المستخدم</h1>
+				<div style="width: 400px; float: right;">
+		
+						<label for="model">الباسورد القديم:</label>
+						<input name="oldPass" type="password" placeholder="password" />
+						<br>
+		
+						<label for="chassis">البريد الالكتروني:</label>
+						<input name="email" type="text" value="<%=email%>" />
+						<br>
+		
+						<label for="motor">الباسورد الجديد:</label>
+						<input name="newPass" type="password" placeholder="password" />
+                        <br>
+                        
+                        <div style="width: 250px; float: left;">
+                            <input type="submit" value="تعديل البيانات"/>
+                            <br>    
+                        </div>
 
+				</div>
+				
+			</div>
+		</form>
+
+	</div>
 	<div id="footer">
 		<div class="clearfix">
 			<div id="connect">

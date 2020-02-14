@@ -10,7 +10,12 @@ module.exports = {
             ...(userId && { _id: ObjectId(userId)})
         });
     },
-    login(){
-        console.log("test login...")
+    edit(userId){
+        return User.findOne({
+            ...(userId && { _id: ObjectId(userId)})
+        });
+    },
+    update(){
+
     }
 };
