@@ -1,17 +1,8 @@
-module.exports = async function (req, res, next){
-   
-    // console.log("Auth Controller : auth ...");
-    // console.log('-->',req.session)
-    // console.log('Cookies: ', req.cookies)
-    // console.log('Signed Cookies: ', req.signedCookies);
-    // console.log('body-->',req.body)
+module.exports = function (req, res, next) {
 
-    const loggedIn = await AuthService.login(req.body);
-
-    (loggedIn){
+    if (req.session.loggedIn) {
         next()
-    }else{
-        res.redirect('/api/auth/login');
+    } else {
+        res.redirect('/login');
     }
-    //req.session.user = user; //----> here do some logic
 }

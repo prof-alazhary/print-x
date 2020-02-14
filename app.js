@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const logger = require('morgan');
 const app = express();
+const appConfig = require('./config/appConfig');
 
 const BootstrapService = require('./services/BootstrapService');
 
@@ -14,10 +15,9 @@ BootstrapService.init().then(()=>null);
 
 app.use(cookieParser());
 app.use(session({
-  secret: 'keyboard cat',
+  secret: appConfig.secret,
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: true }
 }))
 
 // view engine setup

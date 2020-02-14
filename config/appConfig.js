@@ -1,4 +1,4 @@
 module.exports = {
     appName: 'Print-X',
-    secret: 'myJWTKeySecret',
+    secret: 'myJWTKeySecret_and_session',
 }

@@ -1,6 +1,6 @@
 const jwt = require('../helpers/jwt')
 
-function verifyToken(req, res, next) {
+function verifyTokenPolicy(req, res, next) {
 
     const token = req.headers['x-access-token'];
 
@@ -24,4 +24,4 @@ function verifyToken(req, res, next) {
     }
 }
 
-module.exports = verifyToken;
+module.exports = verifyTokenPolicy;

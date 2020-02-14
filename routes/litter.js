@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const verifyToken = require('../policies/verifyToken');
 const LitterController =  require('../controllers/LitterController');
+const userAuthPolicy = require('../policies/userAuthPolicy');
 
+router.get('/new', userAuthPolicy, LitterController.new);
 
-router.get('/new', LitterController.new);
-
-router.get('/search', LitterController.search);
+router.get('/search', userAuthPolicy, LitterController.search);
 
 router.get('/:id', LitterController.select);
 
