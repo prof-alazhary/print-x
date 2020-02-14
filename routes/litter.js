@@ -7,16 +7,16 @@ router.get('/new', userAuthPolicy, LitterController.new);
 
 router.get('/search', userAuthPolicy, LitterController.search);
 
-router.get('/:id', LitterController.select);
+router.get('/:id', userAuthPolicy, LitterController.select);
 
-router.get('/:id/edit', LitterController.edit);
+router.get('/:id/edit', userAuthPolicy, LitterController.edit);
 
-router.post('/new', LitterController.create);
+router.post('/new', userAuthPolicy, LitterController.create);
 
-router.post('/search', LitterController.find);
+router.post('/search', userAuthPolicy, LitterController.find);
 
-router.post('/:id', LitterController.update);
+router.post('/:id', userAuthPolicy, LitterController.update);
 
-router.delete('/:id', LitterController.delete)
+router.delete('/:id', userAuthPolicy, LitterController.delete)
 
 module.exports = router;
