@@ -3,9 +3,7 @@ const router = express.Router();
 const IndexController = require('../controllers/IndexController');
 
 /* GET home page. */
-router.get('/', (req, res, next) => {
-  res.redirect('/api/litter/new');
-});
+router.get('/', IndexController.index);
 
 router.get('/login', IndexController.login);
 
