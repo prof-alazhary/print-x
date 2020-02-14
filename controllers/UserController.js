@@ -13,11 +13,10 @@ module.exports = {
     update(req, res, next) {
         const userData = req.body;
         trimInputs(userData);
-        console.log("-------->",req.session)
         UserService.update(req.session.user.id, userData)
             .then(({ user, message }) => {
                 if (user) {
-                    req.session.user = user;
+                    req.session.user = { id: user._id, name: user.name, email: user.email };
                 }
                 user = user || userData;
                 res.render('user/edit', { user, message });
