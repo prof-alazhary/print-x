@@ -164,7 +164,7 @@ img {
 	min-height: 510px;
 	width: 880px;
 	margin: 0 auto;
-	padding: 30px 40px;
+	padding: 30px 40px 150px 40px;
 	direction: rtl;
 }
 h1 {
@@ -378,6 +378,11 @@ p a {
 	background-color: #eee;
 	border-top: 1px solid #d8d8d8;
 	padding: 20px 0;
+	position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
 }
 #footer p {
 	font-size: 12px;
@@ -438,14 +443,13 @@ td,th {
 }
 
 /*------------------------------ login ------------------------------*/
-
 html {
-	background-color: #56baed;
-  }
-  
+    position: relative;
+    min-height: 100%;
+}
   body {
 	font-family: "Poppins", sans-serif;
-	height: 100vh;
+	height: 100%;
   }
   
   a {
