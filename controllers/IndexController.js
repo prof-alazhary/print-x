@@ -4,5 +4,9 @@ module.exports = {
     },
     login(req, res) {
         res.render('index/login');
+    },
+    logout(req, res){
+        req.session.loggedIn = false;
+        res.redirect('/login');
     }
 }
