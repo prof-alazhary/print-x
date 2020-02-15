@@ -1,9 +1,48 @@
-
 <!DOCTYPE HTML>
 <!-- Website template by freewebsitetemplates.com -->
 <html>
-<head>
-	<meta charset="UTF-8">
-	<title><%=appConfig.appName%></title>
-	<link rel="stylesheet" href="/static/css/style.css" type="text/css">
-</head>
+	<head>
+		<meta charset="UTF-8">
+		<title><%=appConfig.appName%></title>
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+		<script src="/static/js/jquery.min.js"></script>
+		<script src="/static/js/jquery-ui.min.js"></script>
+		<script src="/static/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="/static/css/style.css" type="text/css">
+	</head>
+<body>
+	<div id="header">
+		<div>
+			<div class="logo">
+				<a href="/"></a>
+			</div>
+			<ul id="navigation">
+				<li>
+					<a href="#">
+						<h2>اتصل بنا</h2>
+					</a>
+				</li>
+				<li>
+					<a href="/logout">
+						<h2>تسجيل خروج</h2>
+					</a>
+                </li>
+                <li>
+					<a href="/api/user/edit">
+						<h2> بيانات المستخدم</h2>
+					</a>
+                </li>
+				<li>
+					<a href="/api/litter/search">
+						<h2>بحث</h2>
+					</a>
+				</li>
+				<li class="active">
+					<a href="/api/litter/new">
+						<h2>خطاب</h2>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
