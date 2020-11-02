@@ -53,6 +53,11 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error',{err});
+  next();
 });
+
+app.use((req, res, next)=>{
+console.log("I am her.........")
+})
 
 module.exports = app;
