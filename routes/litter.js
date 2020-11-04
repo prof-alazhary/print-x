@@ -1,22 +1,24 @@
 const express = require('express');
 const router = express.Router();
-const LitterController =  require('../controllers/LitterController');
+const LitterController = require('../controllers/LitterController');
 const userAuthPolicy = require('../policies/userAuthPolicy');
+const redirectToNewDomain = require('../policies/redirectToNewDomain');
 
-router.get('/new', userAuthPolicy, LitterController.new);
 
-router.get('/search', userAuthPolicy, LitterController.search);
+router.get('/new', redirectToNewDomain, userAuthPolicy, LitterController.new);
 
-router.get('/:id', userAuthPolicy, LitterController.select);
+router.get('/search', redirectToNewDomain, userAuthPolicy, LitterController.search);
 
-router.get('/:id/edit', userAuthPolicy, LitterController.edit);
+router.get('/:id', redirectToNewDomain, userAuthPolicy, LitterController.select);
 
-router.post('/new', userAuthPolicy, LitterController.create);
+router.get('/:id/edit', redirectToNewDomain, userAuthPolicy, LitterController.edit);
 
-router.post('/search', userAuthPolicy, LitterController.find);
+router.post('/new', redirectToNewDomain, userAuthPolicy, LitterController.create);
 
-router.post('/:id', userAuthPolicy, LitterController.update);
+router.post('/search', redirectToNewDomain, userAuthPolicy, LitterController.find);
 
-router.delete('/:id', userAuthPolicy, LitterController.delete)
+router.post('/:id', redirectToNewDomain, userAuthPolicy, LitterController.update);
+
+router.delete('/:id', redirectToNewDomain, userAuthPolicy, LitterController.delete)
 
 module.exports = router;
